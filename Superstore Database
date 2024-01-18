@@ -1,23 +1,23 @@
 #1 Organize items in store in descending order based on price
-Select *
-From superstore
-Order by price desc;
+SELECT *
+FROM superstore
+ORDER BY price desc;
 
 #2 Total possible earnings on Smart TVs based on current stock quantity
-Select SUM(stock_quantity * 549.00) 
-From superstore
-Where item_name = 'Smart LED TV';
+SELECT SUM(stock_quantity * 549.00) 
+FROM superstore
+WHERE item_name = 'Smart LED TV';
 
 #3 Average price of all items from store
-Select AVG(price)
-From superstore;
+SELECT AVG(price)
+FROM superstore;
 
 #4 List of items that have at least 25 in stock
-Select item_name, stock_quantity
-From superstore
-Where stock_quantity > 25;
+SELECT item_name, stock_quantity
+FROM superstore
+WHERE stock_quantity >= 25;
 
 #5 Average price of items in the Kitchen Supplies category
-Select AVG(price)
-From superstore
-Where category= 'Kitchen Supplies';
+SELECT AVG(price)
+FROM superstore
+WHERE category= 'Kitchen Supplies';
