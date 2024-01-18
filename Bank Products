@@ -1,0 +1,16 @@
+#1 Provide list of all products available at the bank
+Select product_name
+From bank_products;
+
+#2 Provide list of bank products that are either Checking or Savings accounts
+Select *
+From bank_products
+Where product_type = 'Savings'
+Or product_type = 'Checking';
+
+#3 Provide name and interest rate of bank products that are savings accounts, have an interest rate of at least 0.75, and no monthly fee
+Select product_name, interest_rate
+From bank_products
+Where product_type='Savings'
+And interest_rate >= 0.75
+And monthly_fee = 0.00;
