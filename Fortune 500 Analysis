@@ -60,13 +60,13 @@ VALUES
 
 -- Below are five sample queries run using this dataset. 
 
-#1 Display companies that provide healthcare benefits and at least 14 days of PTO
+-- #1 Display companies that provide healthcare benefits and at least 14 days of PTO
 SELECT company_name
 FROM fortune_companies
 WHERE healthcare_benefits>=1
 AND paid_time_off_days>=14;
 
-#2 Determine number of companies that provide at least 14 days of PTO, at least 7 days of PTO, or less than 7 days of PTO
+-- #2 Determine number of companies that provide at least 14 days of PTO, at least 7 days of PTO, or less than 7 days of PTO
 SELECT COUNT(*),
 CASE WHEN paid_time_off_days >=14 THEN '2+ weeks'
 WHEN paid_time_off_days >=7 THEN '1-2 weeks'
@@ -75,21 +75,21 @@ FROM fortune_companies
 GROUP BY PTO;
 
 
-#3 Which companies have an average employee tenure of at least 5 years and what is their average tenure?
+-- #3 Which companies have an average employee tenure of at least 5 years and what is their average tenure?
 SELECT company_name, ROUND(AVG(avg_employee_tenure),1) AS average_tenure
 FROM fortune_companies
 HAVING average_tenure>=5;
 
-#4 Label technology companies as "PTO generous" or "PTO average" based on the amount of PTO provided 
+-- #4 Label technology companies as "PTO generous," "PTO average," or "Minimal PTO" based on the amount of PTO provided 
 SELECT company_name,
-CASE WHEN paid_time_off_days >=14 THEN 'PTO Generous'
+CASE WHEN paid_time_off_days >=14 THEN 'PTO generous'
 WHEN paid_time_off_days >=7 THEN 'PTO average'
 ELSE 'Minimal PTO' 
 END AS 'PTO Policy'
 FROM fortune_companies
 WHERE industry='Technology';
 
-#5 What Healthcare company has the highest average revenue and what is their revenue
+-- #5 Determine which Healthcare company has the highest average revenue and what is their revenue
 SELECT company_name, MAX(revenue)
 FROM fortune_companies
 WHERE industry='Healthcare';
