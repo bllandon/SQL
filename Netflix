@@ -67,7 +67,7 @@ ON n.show_id=people.show_id
 WHERE n.type='Movie';
 
 -- How many movie titles are there in the database? (movies only, not tv shows)
-SELECT "title"
+SELECT COUNT(*)
 FROM netflix_titles_info
 WHERE "type"='Movie';
 
